@@ -2,7 +2,7 @@
 import { Navigate, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Welcome from './components/Welcome';
-import AccountDetails from "./pages/AccountDetails";
+import AccountDetails from "./pages/Accountdetails";
 import AdminDashboardLayout from './pages/AdminDashboardLayout';
 import Home from './pages/Home';
 import Login from './pages/Login';
