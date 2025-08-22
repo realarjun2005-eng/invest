@@ -17,7 +17,7 @@ const incomeRoutes = require('./routes/incomeRoutes');
 const investRoutes = require('./routes/investRoutes');
 
 const checkinRoutes = require('./routes/checkinRoutes');
-const adminRoutes = require('./routes/adminRoutes');
+const adminRoutes = require('./routes/AdminRoutes');
 
 
 
