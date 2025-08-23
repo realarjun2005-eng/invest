@@ -18,7 +18,7 @@ export default function Recharge() {
       const user = JSON.parse(userRaw);
       const token = user?.token;
       if (!token) return;
-      const res = await fetch('/api/recharge/history', {
+      const res = await fetch('https://invest-2-9yoa.onrender.com/api/recharge/history', {
         headers: { Authorization: `Bearer ${token}` }
       });
       const data = await res.json();
@@ -59,7 +59,7 @@ export default function Recharge() {
         setMessage('You must be logged in to recharge. (No token found)');
         return;
       }
-      const res = await fetch('/api/recharge/request', {
+      const res = await fetch('https://invest-2-9yoa.onrender.com/api/recharge/request', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -100,7 +100,7 @@ export default function Recharge() {
         setMessage('You must be logged in to submit UTR. (No token found)');
         return;
       }
-      const res = await fetch('/api/recharge/utr', {
+      const res = await fetch('https://invest-2-9yoa.onrender.com/api/recharge/utr', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
