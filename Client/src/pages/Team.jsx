@@ -10,7 +10,7 @@ const Team = () => {
     const fetchTeam = async () => {
       try {
         const token = JSON.parse(localStorage.getItem('user'))?.token;
-        const res = await fetch('/api/team/hierarchy', {
+        const res = await fetch('https://invest-2-9yoa.onrender.com/api/team/hierarchy', {
           headers: { Authorization: `Bearer ${token}` }
         });
         if (!res.ok) throw new Error('Failed to fetch team');
