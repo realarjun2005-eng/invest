@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { FaCar, FaHome, FaUser, FaUsers } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import reactLogo from '../assets/react.svg';
-
+import api from '../api/axios';
 const Products = () => {
   // Helper to get image src or fallback
   const getProductImage = (img) => {
@@ -19,7 +19,7 @@ const Products = () => {
   useEffect(() => {
     const fetchPlans = async () => {
       try {
-        const res = await axios.get('/api/products', {
+        const res = await api.get('/api/products', {
           headers: {
             'Content-Type': 'application/json'
           }
@@ -39,7 +39,7 @@ const Products = () => {
       return;
     }
     try {
-      const res = await axios.post(`/api/invest/${productId}`, {}, {
+      const res = await api.post(`/api/invest/${productId}`, {}, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
