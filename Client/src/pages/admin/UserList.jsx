@@ -4,7 +4,7 @@ export default function UsersList() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    fetch('/api/admin/users', {
+    fetch('https://invest-2-9yoa.onrender.com/api/admin/users', {
       headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
     })
       .then(res => res.json())
