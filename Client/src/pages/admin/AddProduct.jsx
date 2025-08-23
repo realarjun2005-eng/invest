@@ -33,7 +33,7 @@ export default function AddProduct() {
     try {
       const user = JSON.parse(localStorage.getItem('user'));
       const token = user?.token;
-      const res = await fetch('/api/admin/product', {
+      const res = await fetch('https://invest-2-9yoa.onrender.com/api/admin/product', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
