@@ -142,12 +142,12 @@ export default function Recharge() {
             <p className="text-xs text-gray-500 mt-2">Scan and pay, then submit UTR below.</p>
             <div className="flex items-center gap-2 mt-2">
               <span className="text-sm text-blue-700 font-semibold">UPI ID:</span>
-              <span className="text-sm text-gray-800 select-all" id="upi-id">7300655336@ptyes</span>
+              <span className="text-sm text-gray-800 select-all" id="upi-id">76878747856@ybl</span>
               <button
                 type="button"
                 className="text-xs bg-blue-100 hover:bg-blue-200 text-blue-700 px-2 py-1 rounded border border-blue-300"
                 onClick={() => {
-                  navigator.clipboard.writeText('7300655336@ptyes');
+                  navigator.clipboard.writeText('765757475757@ybl');
                   setMessage('UPI ID copied!');
                 }}
               >Copy</button>
