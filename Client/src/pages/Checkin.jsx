@@ -7,7 +7,7 @@ export default function Checkin() {
 
   useEffect(() => {
     // Optionally fetch last check-in status from backend
-    fetch('/api/checkin/status', {
+    fetch('https://invest-2-9yoa.onrender.com/api/checkin/status', {
       headers: {
         Authorization: `Bearer ${JSON.parse(localStorage.getItem('user'))?.token}`
       }
@@ -23,7 +23,7 @@ export default function Checkin() {
   const handleCheckin = async () => {
     setMessage('');
     try {
-      const res = await fetch('/api/checkin', {
+      const res = await fetch('https://invest-2-9yoa.onrender.com/api/checkin', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
