@@ -2,7 +2,7 @@
 
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-
+import api from '../api/axios';
 const ViewUsers = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -15,7 +15,7 @@ const ViewUsers = () => {
       try {
         const user = JSON.parse(localStorage.getItem('user'));
         const token = user?.token;
-        const res = await axios.get('/api/admin/users', {
+        const res = await api.get('/api/admin/users', {
           headers: { Authorization: `Bearer ${token}` }
         });
         setUsers(res.data);
