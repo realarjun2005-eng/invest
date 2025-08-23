@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from 'react';
-import api from '../api/axios';
+import api from '../../api/axios';
 const ViewUsers = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
