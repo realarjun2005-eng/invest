@@ -14,7 +14,7 @@ const AccountDetails = () => {
 
   useEffect(() => {
     if (!token) return navigate("/login");
-    fetch("/api/account", {
+    fetch("https://invest-2-9yoa.onrender.com/api/account", {
       headers: {
         Authorization: `Bearer ${token}`,
       }
@@ -34,7 +34,7 @@ const AccountDetails = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("/api/account", {
+    fetch("https://invest-2-9yoa.onrender.com/api/account", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
