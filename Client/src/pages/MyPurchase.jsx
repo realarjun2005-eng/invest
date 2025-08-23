@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { FaCar, FaHome, FaUser, FaUsers } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
-
+import api from '../api/axios';
 const MyPurchase = () => {
   const [purchases, setPurchases] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -13,7 +13,7 @@ const MyPurchase = () => {
     const fetchPurchases = async () => {
       try {
         const token = JSON.parse(localStorage.getItem('user'))?.token;
-        const res = await axios.get('/api/mypurchases', {
+        const res = await api.get('/api/mypurchases', {
           headers: { Authorization: `Bearer ${token}` }
         });
         setPurchases(res.data || []);
