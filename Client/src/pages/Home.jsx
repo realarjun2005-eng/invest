@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { FaCar, FaCheckCircle, FaHome, FaMoneyBillWave, FaUser, FaUserPlus, FaUsers, FaWallet } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import bannerImage from '../assets/banner.jpg'; // Example banner imagee poster image   
-
+import api from '../api/axios';
 const Home = () => {
   // Buy offer product
   const handleBuyOffer = async () => {
@@ -14,7 +14,7 @@ const Home = () => {
       return;
     }
     try {
-      await axios.post(`/api/invest/${offer._id}`, {}, {
+      await api.post(`/api/invest/${offer._id}`, {}, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -46,8 +46,8 @@ const Home = () => {
 
   const fetchData = async () => {
     try {
-      const offerRes = await axios.get('/api/home/offer'); // mock endpoint
-      const txnRes = await axios.get('/api/home/transactions');
+      const offerRes = await api.get('/api/home/offer'); // mock endpoint
+      const txnRes = await api.get('/api/home/transactions');
       setOffer(offerRes.data);
       setTransactions(txnRes.data);
     } catch (err) {
