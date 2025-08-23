@@ -27,22 +27,24 @@ connectDB();
 
 const app = express();
 
-app.use(cors());
+// Allow only localhost:3000 and Vercel frontend
 const allowedOrigins = [
   "http://localhost:3000",
-  "https://investmentpro.vercel.app",
+  "https://investmentpro.vercel.app"
 ];
 
 app.use(cors({
   origin: function (origin, callback) {
-    // Allow requests with no origin (like mobile apps, curl, Postman)
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
+    if (!origin) return callback(null, true); // allow server-to-server or curl
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
     } else {
-      callback(new Error("Not allowed by CORS"));
+      return callback(new Error("Not allowed by CORS"));
     }
   },
-  credentials: true // ✅ allow cookies/auth headers
+  credentials: true,   // 🔑 allow cookies/headers
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
 }));
 app.use(express.json());
 
