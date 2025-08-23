@@ -20,14 +20,14 @@ const WithdrawRecord = () => {
 
   useEffect(() => {
     // Fetch withdrawal records
-    fetch("/api/withdraw", {
+    fetch("https://invest-2-9yoa.onrender.com/api/withdraw", {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(res => res.json())
       .then(data => setRecords(data))
       .catch(err => console.log(err));
     // Fetch available withdrawable amount and net income
-    fetch("/api/withdraw/available", {
+    fetch("https://invest-2-9yoa.onrender.com/api/withdraw/available", {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(res => res.json())
@@ -45,7 +45,7 @@ const WithdrawRecord = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("/api/withdraw", {
+    fetch("https://invest-2-9yoa.onrender.com/api/withdraw", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -60,7 +60,7 @@ const WithdrawRecord = () => {
           setAmount("");
           setRecords([data.withdraw, ...records]);
           // Refetch available amount and net income
-          fetch("/api/withdraw/available", {
+          fetch("https://invest-2-9yoa.onrender.com/api/withdraw/available", {
             headers: { Authorization: `Bearer ${token}` }
           })
             .then(res => res.json())
