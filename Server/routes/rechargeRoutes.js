@@ -17,7 +17,7 @@ router.post('/request', protect, async (req, res) => {
       return res.status(400).json({ message: 'Invalid amount' });
     }
     // Generate QR code for payment (for demo, encode amount and user)
-    const qrData = `upi://pay?pa=7300655336@ptyes&pn=InvestPro&am=${amount}&cu=INR&user=${req.user._id}`;
+    const qrData = `upi://pay?pa=457895484@ybl&pn=InvestPro&am=${amount}&cu=INR&user=${req.user._id}`;
     const qrUrl = await QRCode.toDataURL(qrData);
     // Create recharge record (pending)
     const recharge = await Recharge.create({
