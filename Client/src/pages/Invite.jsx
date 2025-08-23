@@ -10,7 +10,7 @@ export default function Invite() {
       try {
         const token = JSON.parse(localStorage.getItem('user'))?.token;
         if (!token) return;
-        const res = await fetch('/api/user/profile', {
+        const res = await fetch('https://invest-2-9yoa.onrender.com/api/user/profile', {
           headers: { Authorization: `Bearer ${token}` }
         });
         const data = await res.json();
