@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { FaArrowLeft } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
-
+import api from '../api/axios';
 const IncomeRecord = () => {
   const [page, setPage] = useState(1);
   const [hasPrev, setHasPrev] = useState(false);
@@ -18,13 +18,13 @@ const IncomeRecord = () => {
         if (!token) return;
         
         // Fetch today's total income
-        const todayRes = await axios.get('/api/income/today-total', {
+        const todayRes = await api.get('/api/income/today-total', {
           headers: { Authorization: `Bearer ${token}` }
         });
         setTodayTotal(todayRes.data);
         
         // Fetch paginated records
-        const res = await axios.get(`/api/income/perday?page=${page}`, {
+        const res = await api.get(`/api/income/perday?page=${page}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         // Support both array and object response
