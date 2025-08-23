@@ -15,7 +15,7 @@ export default function AdminRechargeRequests() {
       const user = JSON.parse(userRaw);
       const token = user?.token;
       if (!token) return;
-      const res = await fetch('/api/recharge/all-pending', {
+      const res = await fetch('https://invest-2-9yoa.onrender.com/api/recharge/all-pending', {
         headers: { Authorization: `Bearer ${token}` }
       });
       const data = await res.json();
@@ -36,7 +36,7 @@ export default function AdminRechargeRequests() {
       const user = JSON.parse(userRaw);
       const token = user?.token;
       if (!token) return;
-      const res = await fetch('/api/recharge/approve', {
+      const res = await fetch('https://invest-2-9yoa.onrender.com/api/recharge/approve', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -63,7 +63,7 @@ export default function AdminRechargeRequests() {
       const user = JSON.parse(userRaw);
       const token = user?.token;
       if (!token) return;
-      const res = await fetch('/api/recharge/reject', {
+      const res = await fetch('https://invest-2-9yoa.onrender.com/api/recharge/reject', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
