@@ -6,7 +6,7 @@ export default function ApproveWithdraw() {
   const [requests, setRequests] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/admin/withdraws', {
+    fetch('https://invest-2-9yoa.onrender.com/api/admin/withdraws', {
       headers: { Authorization: `Bearer ${JSON.parse(localStorage.getItem('user'))?.token}` },
     })
       .then(res => res.json())
@@ -15,7 +15,7 @@ export default function ApproveWithdraw() {
 
 
   const approve = id => {
-    fetch(`/api/admin/withdraw/${id}/approve`, {
+    fetch(`https://invest-2-9yoa.onrender.com/api/admin/withdraw/${id}/approve`, {
       method: 'PUT',
       headers: { Authorization: `Bearer ${JSON.parse(localStorage.getItem('user'))?.token}` }
     })
@@ -23,7 +23,7 @@ export default function ApproveWithdraw() {
   };
 
   const reject = id => {
-    fetch(`/api/admin/withdraw/${id}/reject`, {
+    fetch(`https://invest-2-9yoa.onrender.com/api/admin/withdraw/${id}/reject`, {
       method: 'PUT',
       headers: { Authorization: `Bearer ${JSON.parse(localStorage.getItem('user'))?.token}` }
     })
