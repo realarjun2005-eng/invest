@@ -29,7 +29,7 @@ export default function AdminOfferProduct() {
         setMessage('Not authenticated');
         return;
       }
-      const res = await fetch('/api/admin/offer-product', {
+      const res = await fetch('https://invest-2-9yoa.onrender.com/api/admin/offer-product', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
