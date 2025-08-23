@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-
+import api from '../api/axios';
 const BankCard = () => {
   const [details, setDetails] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -10,7 +10,7 @@ const BankCard = () => {
     const fetchDetails = async () => {
       try {
         const token = JSON.parse(localStorage.getItem('user'))?.token;
-        const res = await axios.get('/api/account', {
+        const res = await api.get('/api/account', {
           headers: { Authorization: `Bearer ${token}` }
         });
         setDetails(res.data);
