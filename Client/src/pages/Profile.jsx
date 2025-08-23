@@ -1,4 +1,5 @@
 import axios from 'axios';
+import api from '../api/axios';
 import { useEffect, useState } from 'react';
 import { FaCar, FaDownload, FaHome, FaMoneyBillWave, FaQuestionCircle, FaRegFileAlt, FaSignOutAlt, FaUser, FaUsers, FaWallet } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
@@ -13,7 +14,7 @@ const Profile = () => {
     const fetchUser = async () => {
       try {
         const token = JSON.parse(localStorage.getItem('user'))?.token;
-        const res = await axios.get('/api/user/profile', {
+        const res = await api.get('/api/user/profile', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
